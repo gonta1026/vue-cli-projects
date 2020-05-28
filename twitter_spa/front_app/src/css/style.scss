@@ -1,0 +1,154 @@
+.all-box {
+  display: flex;
+  max-width: 1000px;
+  margin: auto;
+  width: 100%;
+  position: relative;
+
+  .main-box {
+    order: 2;
+    width: 68%;
+    border-right: 1px solid #ddd;
+    .fixed-area {
+      // height: calc(100vh - 71px);
+      overflow: scroll;
+      form {
+        padding: 20px 4% 0;
+        margin-top: 20px;
+        .form-add {
+          @include between;
+  
+          .left {
+            width: 72%;
+  
+            .text {
+              textarea {
+                @include borderbase;
+                width: 100%;
+                min-height: 100px;
+              }
+            }
+          }
+  
+          .right {
+            width: 140px;
+  
+            .select {
+              select {
+                @include borderbase;
+                width: 100%;
+                padding: 2px 13px;
+                background: transparent;
+  
+                option {
+                  color: #000
+                }
+              }
+            }
+  
+            .submit {
+              margin-top: 20px;
+              input {
+                @include borderbase;
+                width: 100%;
+                background: $main_color;
+                color: #fff;
+                border: none;
+              }
+            }
+          }
+        }
+      }
+  
+      .tweets {
+        padding: 20px 4%;
+  
+        ul {
+          li {
+            @include borderbase($padding: 5px 5px 20px 20px);
+            .list-top {
+              
+            }
+            .category {
+              @include borderbase($radius: 20px);
+              text-align: center;
+              width: 110px;
+              margin: 0 0 0 auto;
+              font-size: 13px;
+            }
+            &:nth-of-type(n + 2) {
+              margin-top: 20px;
+            }
+  
+            .list-top {
+              @include between;
+            }
+            .list-btns {
+              display: flex;
+              dd {
+                &:nth-of-type(n + 2){
+                  margin-left: 20px;
+                }
+              }
+            }
+            &.works {
+              .category {
+                background: #FF4500;
+              }
+            }
+  
+            &.hobby {
+              .category {
+                background: #6633FF;
+              }
+            }
+  
+            &.programing {
+              .category {
+                background: #9400D3;
+              }
+            }
+  
+            &.other {
+              .category {
+                background: #E6FFE9;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .left-nav-list {
+    order: 1;
+    width: 24%;
+    padding: 30px 0 0 5%;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    ul {
+      li {
+        .fa-twitter {
+          font-size: 40px;
+        }
+
+        i {
+          color: $main_color;
+        }
+
+        &:nth-of-type(n + 2) {
+          margin-top: 20px;
+        }
+      }
+    }
+
+    .free {
+      padding: 200px 0 0 11%;
+
+      .fa-baby {
+        font-size: 50px;
+        color: $main_color;
+      }
+    }
+  }
+}

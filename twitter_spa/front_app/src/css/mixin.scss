@@ -1,0 +1,12 @@
+@mixin borderbase ($padding: 5px, $radius: 5px) {
+  border-radius: $radius;
+  border: 1px solid #ddd;
+  padding: $padding;
+}
+
+@mixin between {
+  display: flex;
+  justify-content: space-between;
+}
+
+
