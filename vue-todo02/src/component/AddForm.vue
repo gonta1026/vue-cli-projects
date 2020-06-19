@@ -59,8 +59,8 @@ export default {
       //一意なIDを作成
       isNaN(localStorage.uid) ? localStorage.uid = 0 : true;
       localStorage.uid++
-      var today = "";
-      var item = {
+      const today = "";
+      const item = {
         id: localStorage.uid,
         today: this.calcDay(today),
         title: this.newTitle,
@@ -71,15 +71,15 @@ export default {
         pinch: false,
       }
       // 締め切り日の一番近いtodoの抽出
-      var result = this.todos.filter(function(value, index, array){
-        var comparison_date = new Date(array[index].deadline)
-        var new_item_deadline = new Date(item.deadline)
+      const result = this.todos.filter((value, index, array)=> {
+        const comparison_date = new Date(array[index].deadline)
+        const new_item_deadline = new Date(item.deadline)
         if (new_item_deadline <= comparison_date){
           return value;
         }
       });
       // 新しいtodoの追加場所を定義
-      var index = !this.todos.length ? 0
+      const index = !this.todos.length ? 0
                   :(result[0] === undefined
                   ? this.todos.length
                   : this.todos.indexOf(result[0]));

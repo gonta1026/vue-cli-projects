@@ -24,7 +24,7 @@
                   </div>
                   <p class="title">
                     <label class="text">
-                      <input type="checkbox" class="check" v-model="todo.isDone" />
+                      <input type="checkbox" class="check" v-model="todo.isDone"/>
                       <span>{{todo.title}}</span>
                     </label>
                   </p>
@@ -87,10 +87,10 @@ import TopHeader from "./component/TopHeader.vue";
 import AddForm from "./component/AddForm.vue";
 // import EditForm from "./component/EditForm.vue";
 import Modal from "./component/Modal.vue";
-var STORAGE_KEY = 'vue-todo02'
-var todoStorage = {
+const STORAGE_KEY = 'vue-todo02'
+const todoStorage = {
   fetch: function () {
-    var todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
+    const todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
     todos.forEach(function (todo, index) {
       todo.id = index
     })
@@ -157,12 +157,6 @@ export default {
     },
   },
   methods: {
-    // nanana(todo){
-    //   console.log(todo.title)
-    //   return this.todos.filter(function(todo) {
-    //     return !todo.isDone;
-    //   });
-    // },
     // footerのスクロールボタンのfadein
     handleScroll(evt, el) {
       if (window.scrollY > 200) {
@@ -185,7 +179,7 @@ export default {
     },
     // footerのスクロールボタンのスクロールトップ
     toTop: function() {
-      var scrolled = window.pageYOffset;
+      const scrolled = window.pageYOffset;
       window.scrollTo(0, Math.floor(scrolled * 0.8));
       if (scrolled > 0) {
         window.setTimeout(this.toTop, 20);
@@ -194,15 +188,15 @@ export default {
 
     // 日付のフォーマットとtodoの締め切りを設定する日数計算の関数
     calcDay(day, created_at) {
-      var today = (created_at == null || created_at == "")
+      const today = (created_at == null || created_at == "")
                 ? new Date()
                 : new Date(created_at);
 
       today.setDate(today.getDate() + day);
-      var year = today.getFullYear();
-      var month = today.getMonth() + 1;
+      const year = today.getFullYear();
+      const month = today.getMonth() + 1;
       day = today.getDate();
-      var formatDay = year + "/" + month + "/" + day;
+      const formatDay = year + "/" + month + "/" + day;
       return formatDay;
     },
     // todoの削除
@@ -394,6 +388,9 @@ ul li {
       .todo-list {
         margin-top: 30px;
         li {
+          &.done{
+            opacity: 0.5;
+          }
           &.done .title{
             text-decoration: line-through;
           }

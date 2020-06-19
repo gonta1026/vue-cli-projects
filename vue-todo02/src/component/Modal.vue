@@ -4,12 +4,12 @@
     appear
     >
   <div class="modal-mask">
-    <div @click="change" class="modal-wrapper">
+    <div @click.self="change" class="modal-wrapper">
       <transition
       enter-active-class="animated fadeInUpBig delay-0.5s"
       appear
       >
-      <div @click.stop="" class="modal-container">
+      <div class="modal-container">
         <form @submit.prevent="editItem">
           <p class="title">
             <label for="title">title</label>
